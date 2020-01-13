@@ -11,7 +11,8 @@
                  ; Ring defaults - for query params etc
                  [ring/ring-defaults "0.3.2"]
                  ; Clojure data.JSON library
-                 [org.clojure/data.json "0.2.6"]]
+                 [org.clojure/data.json "0.2.6"]
+                 [com.novemberain/monger "3.5.0"]]
   :main ^:skip-aot rest-server.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

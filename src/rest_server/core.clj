@@ -1,18 +1,23 @@
 (ns rest-server.core
   (:require [org.httpkit.server :as server]
             [compojure.core :refer :all]
-            [compojure.route :as route]
             [ring.middleware.defaults :refer :all]
-            [clojure.data.json :as json])
+            [monger.core :as mg]
+            [clojure.data.json :as json]
+            [monger.collection :as mc])
   (:gen-class))
 
-(defn hello-world [req]
+(defn show-names [req]
   {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    "Hello World"})
+   :body    ((let [conn (mg/connect)
+                   db (mg/get-db conn "tic-tac-toe")
+                   coll "documents"]
+               (mc/insert db coll {:first_name "John" :last_name "Lennon"})
+               (mc/insert db coll {:first_name "Ringo" :last_name "Starr"})))})
 
 (defroutes app-routes
-           (GET "/" [] hello-world))
+           (GET "/" [] show-names))
 
 (defn -main
   [& args]
