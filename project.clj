@@ -11,6 +11,7 @@
                  ; Ring defaults - for query params etc
                  [ring/ring-defaults "0.3.2"]
                  [ring/ring-json "0.5.0"]
+                 [ring-cors "0.1.13"]
                  ; Clojure data.JSON library
                  [org.clojure/data.json "0.2.6"]
                  [com.novemberain/monger "3.5.0"]
