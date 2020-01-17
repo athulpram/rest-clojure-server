@@ -26,4 +26,4 @@
                                                                 "content-type"
                                                                 "origin"}
                                 :access-control-allow-origin [#".*"]
-                                :access-control-allow-methods [:get :put :patch :options :post :delete]) {:port port})))
+                                :access-control-allow-methods [:get :put :patch :post :delete]) {:port port})))
